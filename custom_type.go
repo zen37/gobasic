@@ -5,12 +5,12 @@ import "fmt"
 type anyName string
 
 func (a anyName) print() {
-	fmt.Println("method print() called, anyName is now: ", a)
+	fmt.Println("method print() called, x is now: ", a)
 }
 
 func (a anyName) copy() {
 	//does not change the receiver
-	fmt.Println("[func (a anyName) pointer()] called")
+	fmt.Println("[func (a anyName) copy()] called")
 	fmt.Println("anyName receiver is: ", a)
 	fmt.Println("anyName receiver gets a new value: \"hallo welt\"")
 	a = "hallo welt"
@@ -35,7 +35,7 @@ func main() {
 	var x anyName
 
 	x = "hello world"
-	fmt.Println("x = \"hello world\"")
+	fmt.Println("x is \"hello world\"")
 	fmt.Println()
 
 	x.copy()
