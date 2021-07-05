@@ -16,7 +16,7 @@ func main() {
 	s1 = append(s1, x...)
 	fmt.Println("s1:", s1)
 
-	s2 := [][]string{{"a", "b"}, {"c", "d"}}
+	s2 := [][]string{{"a", "b"}, {"c", "d"}, ""}
 	fmt.Println("s2:", s2)
 	fmt.Println("s2[0]:", s2[0])
 	fmt.Println("s2[1][0]:", s2[1][0])
