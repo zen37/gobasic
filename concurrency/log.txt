@@ -1,0 +1,8 @@
+sequence: 1|1000
+goroutines: 1|1005
+sequence: 10|10026
+goroutines: 10|1005
+sequence: 111|111336
+goroutines: 111|1002
+sequence: 1000|1002981
+goroutines: 1000|1005
