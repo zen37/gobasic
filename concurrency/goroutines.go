@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-const counter int = 1000
+const counter int = 100000
 
 func main() {
 
@@ -24,25 +24,27 @@ func main() {
 
 	start := time.Now()
 
-	sequence(counter)
-	//fmt.Println(time.Since(start).Nanoseconds())
-	//fmt.Println("sequence duration:", time.Since(start).Microseconds())
-	duration := time.Since(start).Milliseconds()
-	fmt.Println("sequence duration:", duration)
-	//fmt.Println(time.Since(start).Seconds())
-	rec := []byte("sequence: " + strconv.Itoa(counter) + "|" + strconv.FormatInt(duration, 10) + "\n")
-	if _, err := f.Write([]byte(rec)); err != nil {
-		f.Close() // ignore error; Write error takes precedence
-		log.Fatal(err)
-	}
+	/*
+		sequence(counter)
+		//fmt.Println(time.Since(start).Nanoseconds())
+		//fmt.Println("sequence duration:", time.Since(start).Microseconds())
+		duration := time.Since(start).Milliseconds()
+		fmt.Println("sequence duration:", duration)
+		//fmt.Println(time.Since(start).Seconds())
+		rec := []byte("sequence: " + strconv.Itoa(counter) + "|" + strconv.FormatInt(duration, 10) + "\n")
+		if _, err := f.Write([]byte(rec)); err != nil {
+			f.Close() // ignore error; Write error takes precedence
+			log.Fatal(err)
+		}
 
-	start = time.Now()
+		start = time.Now()
+	*/
 	parallel(counter, &wg)
 	wg.Wait()
-	duration = time.Since(start).Milliseconds()
+	duration := time.Since(start).Milliseconds()
 	fmt.Println("parallel duration:", duration)
 
-	rec = []byte("goroutines: " + strconv.Itoa(counter) + "|" + strconv.FormatInt(duration, 10) + "\n")
+	rec := []byte("goroutines: " + strconv.Itoa(counter) + "|" + strconv.FormatInt(duration, 10) + "\n")
 	if _, err := f.Write([]byte(rec)); err != nil {
 		f.Close() // ignore error; Write error takes precedence
 		log.Fatal(err)

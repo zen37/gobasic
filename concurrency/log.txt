@@ -6,3 +6,7 @@ sequence: 111|111336
 goroutines: 111|1002
 sequence: 1000|1002981
 goroutines: 1000|1005
+sequence: 200|200513
+goroutines: 200|1004
+goroutines: 10000|1021
+goroutines: 100000|1246
