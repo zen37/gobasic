@@ -37,9 +37,12 @@ func init() {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(cfg)
+	//	fmt.Println(cfg)
 }
 
 func main() {
-
+	//	fmt.Println(cfg.Servers[0])
+	for _, v := range cfg.Servers {
+		fmt.Println(v)
+	}
 }
