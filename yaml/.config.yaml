@@ -1,0 +1,18 @@
+servers:
+-  server: A
+   name: server1.database.net
+   databases:
+   - database: 1
+     name: mydatabase1
+     tables:
+     - table: Acc
+       name: Accounts
+     - table: Cust
+       name: Cust
+   - database: 2
+     name: mydatabase2
+-  server: B
+   name: server2.database.net
+   databases:
+   - database: 1
+     name: mydatabase1
