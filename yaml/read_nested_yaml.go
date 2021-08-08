@@ -23,7 +23,35 @@ type yamlConfig struct {
 	} `yaml:"servers"`
 }
 
+type yamlConfig2 struct {
+	Lower struct {
+		Name string `yaml:"name"`
+	}
+
+	Upper struct {
+		Name string `yaml:"name"`
+	}
+
+	camelCase struct {
+		Name string `yaml:"name"`
+	}
+
+	PascalCase struct {
+		Name string `yaml:"name"`
+	}
+
+	AnyName struct {
+		Name string `yaml:"name"`
+	} `yaml:"PascalCase"`
+
+	AnyName2 struct {
+		Name string `yaml:"name"`
+	} `yaml:"camelCase"`
+}
+
 var cfg yamlConfig
+
+var cfg2 yamlConfig2
 
 func init() {
 
@@ -37,7 +65,17 @@ func init() {
 		log.Fatalln(err)
 	}
 
-	//	fmt.Println(cfg)
+	yamlConfig2, err := ioutil.ReadFile(".config.yaml")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	err = yaml.Unmarshal(yamlConfig2, &cfg2)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(cfg2)
 }
 
 func main() {

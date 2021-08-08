@@ -16,3 +16,15 @@ servers:
    databases:
    - database: 1
      name: mydatabase1
+
+lower:
+  name: lower case
+
+UPPER:
+  name: UPPER CASE
+
+camelCase:
+  name: camel Case
+
+PascalCase:
+  name: Pascal Case
