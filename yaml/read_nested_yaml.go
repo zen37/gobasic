@@ -28,9 +28,13 @@ type yamlConfig2 struct {
 		Name string `yaml:"name"`
 	}
 
-	Upper struct {
+	Upper1 struct {
 		Name string `yaml:"name"`
 	}
+
+	Upper2 struct {
+		Name string `yaml:"name"`
+	} `yaml:"UPPER"`
 
 	camelCase struct {
 		Name string `yaml:"name"`
