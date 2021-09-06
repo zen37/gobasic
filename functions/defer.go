@@ -9,9 +9,9 @@ func cleanup() error {
 
 func getMessage() (string, error) {
 
-	cleanup()
+	err := cleanup()
 
-	return "hello world", nil
+	return "hello world", err
 }
 
 func main() {
