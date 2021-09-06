@@ -9,7 +9,7 @@ func cleanup() error {
 
 func getMessage() (msg string, err error) {
 
-	func() {
+	defer func() {
 		err = cleanup()
 	}()
 
