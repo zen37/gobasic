@@ -4,6 +4,10 @@ import "fmt"
 
 func cleanup() error {
 	fmt.Println("Running cleanup...")
+	return nil
+}
+
+func doThis() error {
 	return fmt.Errorf("error on cleanup")
 }
 
@@ -12,6 +16,7 @@ func getMessage() (msg string, err error) {
 	defer func() {
 		err = cleanup()
 	}()
+	err = doThis()
 
 	return "hello world", err
 }
