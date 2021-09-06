@@ -8,13 +8,16 @@ func cleanup() error {
 }
 
 func doThis() error {
-	return fmt.Errorf("error on cleanup")
+	return fmt.Errorf("error from doing another thing")
 }
 
 func getMessage() (msg string, err error) {
 
 	defer func() {
-		err = cleanup()
+		if errDefferred := cleanup(); errDefferred != nil {
+			err = errDefferred
+		}
+
 	}()
 	err = doThis()
 
