@@ -7,9 +7,11 @@ func cleanup() error {
 	return fmt.Errorf("error on cleanup")
 }
 
-func getMessage() (string, error) {
+func getMessage() (msg string, err error) {
 
-	err := cleanup()
+	func() {
+		err = cleanup()
+	}()
 
 	return "hello world", err
 }
