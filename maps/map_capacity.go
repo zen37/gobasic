@@ -21,6 +21,7 @@ func main() {
 
 	t0 = time.Now()
 	val2 := make(map[int]int)
+	fmt.Println("make(map[int]int) is", val2)
 	for x := 0; x < 1000; x++ {
 		val2[x] = x
 	}
@@ -29,6 +30,7 @@ func main() {
 
 	t0 = time.Now()
 	val3 := map[int]int{}
+	fmt.Println("map[int]int{} is", val3)
 	for x := 0; x < 1000; x++ {
 		val3[x] = x
 	}
