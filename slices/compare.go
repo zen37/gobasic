@@ -18,7 +18,7 @@ func main() {
 func compare(a, b []string) []string {
 	for i := len(a) - 1; i >= 0; i-- {
 		for _, vD := range b {
-			if a[i] == vD {
+	a		if a[i] == vD {
 				a = append(a[:i], a[i+1:]...)
 				break
 			}
