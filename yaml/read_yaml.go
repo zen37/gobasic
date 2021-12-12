@@ -91,7 +91,7 @@ func init() {
 	fmt.Println("----- struct naming for yaml -----")
 	fmt.Println(cfg2)
 
-	yamlConfigReq, err := ioutil.ReadFile(".config2.yaml")
+	yamlConfigReq, err := ioutil.ReadFile("config2.yaml")
 	if err != nil {
 		log.Fatalln(err)
 	}
