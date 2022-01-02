@@ -21,13 +21,19 @@ func (a *itemA) bar() {
 	fmt.Println("bar on A")
 }
 
-type itemB struct{}
+type itemB struct {
+	name string
+}
 
-func (a *itemB) foo() {
+func (v *itemB) foo() {
 	fmt.Println("foo on B")
 }
 
-func (a *itemB) bar() {
+func (v *itemB) bar() {
+	fmt.Println("bar on B")
+}
+
+func (v itemB) bar2() {
 	fmt.Println("bar on B")
 }
 
@@ -42,5 +48,10 @@ func doFoo(item foobar) {
 func main() {
 	doFoo(&itemA{}) // Prints "foo on A"
 	doFoo(&itemB{}) // Prints "foo on B"
-	doFooA(&itemB{})
+
+	//doFoo(&itemB)   //does not compile - type itemB is not an expression
+	/* does not compile - cannot use itemB{} (type itemB) as type foobar in argument to doFoo:
+	   itemB does not implement foobar (bar method has pointer receiver)
+	*/
+	//doFoo(itemB{})
 }
