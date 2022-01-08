@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 type foobar interface {
@@ -71,8 +72,14 @@ func main() {
 	   itemC does not implement foobar (missing foo method) */
 	doBar(itemC{})
 	/* afterm implementing foo method the above prints bar on C */
+	doFoo(itemC{})
+	doFoo(&itemC{})
+
 }
 
 func (v itemC) foo() {
+	fmt.Println(reflect.ValueOf(v).Kind())
+	fmt.Println(reflect.TypeOf(v))
+
 	fmt.Println("foo on C")
 }
