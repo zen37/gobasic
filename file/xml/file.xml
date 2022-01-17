@@ -1,0 +1,9 @@
+<Person Age="23">
+    <FirstName>John</FirstName>
+    <LastName>Smith</LastName>
+    <Hobbies>
+        <Hobby>Golf</Hobby>
+        <Hobby>Reading</Hobby>
+        <Hobby>Guitar</Hobby>
+    </Hobbies>
+</Person>

@@ -1,0 +1,5 @@
+prefix:
+  /robots.txt
+  /favicon.ico
+suffix: .rss .atom
+regex: /[a-f0-9]+/css/ /[a-f0-9]+/images/
