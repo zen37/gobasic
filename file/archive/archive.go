@@ -9,8 +9,8 @@ import (
 
 func main() {
 
-	zrc, err := zip.OpenReader("fs.zip")
-	//zrc, err := zip.OpenReader("readme.zip")
+	//zrc, err := zip.OpenReader("fs.zip")
+	zrc, err := zip.OpenReader("readme.zip")
 	if err != nil {
 		log.Fatal(err)
 	}
