@@ -1,0 +1,10 @@
+# base image
+FROM golang:1.17-alpine3.15
+# working directory inside docker
+WORKDIR /app
+# copy content to working dir
+COPY . .
+# create the native binary
+RUN go build -o application main.go
+# run the native binary
+CMD [ "/app/application" ]
