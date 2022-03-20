@@ -1,8 +1,7 @@
-# stage 1
-# We use golang:1.17-alpine3.15 to compile the code and prepare the native binary.
-# This docker image contains all the tools required to compile and build the native binary
+# Stage 0
+# golang:1.17-alpine3.15 image contains all the tools to compile the code and prepare the native binary.
 
-# base image - stage 0
+# base image for stage 0
 FROM golang:1.17-alpine3.15
 # current working dir
 WORKDIR /app
@@ -12,9 +11,9 @@ COPY . .
 RUN go build -o application main.go
 
 
-# stage 2
-# We use bare minimum alpine:latest image where we copy the binary file created in the earlier stage.
-# The earlier stage is referenced in the final stage by providing the flag --from=0.
+# Stage 1
+# alpine:latest is the bare minimum image where we copy the binary file created in the earlier stage.
+# earlier stage is referenced in the final stage by providing the flag --from=0.
 
 # runtime image
 FROM alpine:latest
