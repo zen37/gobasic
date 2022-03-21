@@ -1,4 +1,0 @@
-FROM scratch
-WORKDIR /app
-COPY . .
-CMD [ "/app/application" ]
