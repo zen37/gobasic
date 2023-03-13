@@ -6,12 +6,23 @@ import (
 
 type Database interface {
 	GetUser() string
+	GetAllUsers() []string
 }
 
 type SQLDb struct{}
 
 func (db SQLDb) GetUser() string {
 	return "Joe"
+}
+
+type SQLDbBetter struct{}
+
+func (db SQLDbBetter) GetUser() string {
+	return "better sql db"
+}
+
+func (db SQLDbBetter) GetAllUsers() []string {
+	return []string{}
 }
 
 type Greeter interface {
@@ -35,7 +46,8 @@ func (p Program) Execute() {
 }
 
 func main() {
-	db := SQLDb{}
+	//db := SQLDb{}
+	db := SQLDbBetter{}
 	greeter := NiceGreeter{}
 
 	p := Program{db, greeter}
